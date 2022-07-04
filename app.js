@@ -6,7 +6,7 @@ const fileUpload = require('express-fileupload');
 
 const cors = require('cors');
 
-const { PORT } = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000;
 
 const app = express();
 
@@ -45,7 +45,7 @@ app.get('/users/:idUser', getUser);
 
 /* ###### Endpoints POSTS  ########*/
 
-const { newPost, getPost, listPosts } = require('./controllers/posts/');
+const { newPost, getPost, listPosts } = require('./controllers/posts');
 
 // Create new post //
 app.post('/posts', authUser, newPost);
@@ -89,5 +89,5 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server listening at http://localhost:${PORT}`);
+    console.log('Escuchando en el puerto', PORT);
 });
