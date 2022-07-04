@@ -2,18 +2,16 @@ require('dotenv').config();
 
 const mysql = require('mysql2/promise');
 
-const { MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB } = process.env;
 let pool;
-
 const getConnection = async () => {
     try {
         if (!pool) {
             pool = mysql.createPool({
                 connectionLimit: 10,
-                host: MYSQL_HOST,
-                user: MYSQL_USER,
-                password: MYSQL_PASS,
-                database: MYSQL_DB,
+                host: 'us-cdbr-east-06.cleardb.net',
+                user: 'baa4413413f152',
+                password: '1a6558c9',
+                database: 'heroku_5e5fc9de364d3d0',
                 timezone: 'Z',
             });
         }
